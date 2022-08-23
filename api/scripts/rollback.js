@@ -2,14 +2,19 @@ const fs = require('fs');
 
 module.exports = (rc, files, error) => {
 
-  console.log('Executing rollback: ')
-  console.log(' ')
-  console.log('> Cleaning Monorepo....')
-  const projectOutputPath = path.join(rc.workspace_path, rc.group_folder, rc.path);
-  fs.rmdirSync(projectOutputPath, { recursive: true });
+  return new Promise((resolve, reject) => {
+    console.log('> Cleaning Monorepo....')
 
-  console.log("> Cleaning Monorepo....\u001b[2K\u001b[0E> Cleaning Monorepo.... ✅")
-  
-  console.log('> Rollback nx....')
+    // Git clone (clone repo templates)
+    const child = spawn(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
+      shell: true,
+      cwd: rc.workspace_path
+    })
 
+    //spit stdout to screen
+    child.stdout.on('data', (d) => console.log(`${d.toString()}`))
+    child.stderr.on('data', (d) => console.log(chalk.red(`${d.toString()}`)))
+
+    child.on('close', (exitCode) => exitCode === 0 ? resolve() : reject(new Error('failed to rollback Nx')));
+  })
 }
