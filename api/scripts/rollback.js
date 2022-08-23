@@ -1,4 +1,4 @@
-const fs = require('fs');
+const { spawn } = require('node:child_process');
 
 module.exports = (rc, files, error) => {
 
