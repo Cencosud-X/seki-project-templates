@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports = (rc, error) => {
+module.exports = (workspacePath, rc, error) => {
   return new Promise((resolve, reject) => {
     try {
       console.log('> Cleaning Monorepo....')
@@ -8,7 +8,7 @@ module.exports = (rc, error) => {
       // Git clone (clone repo templates)
       const child = spawn(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
         shell: true,
-        cwd: rc.workspace_path
+        cwd: workspacePath
       })
 
       //spit stdout to screen

@@ -1,6 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports = (rc) => {
+module.exports = (workspacePath, rc) => {
   return new Promise((resolve, reject) => {
     try {
       console.log('> PRE: Installing prerequisites (API):');
@@ -11,7 +11,7 @@ module.exports = (rc) => {
         `npx nx g @nrwl/nest:app ${rc.path}`
       ].join(" && "), {
         shell: true,
-        cwd: rc.workspace_path
+        cwd: rc.workspacePath
       })
 
       //spit stdout to screen
