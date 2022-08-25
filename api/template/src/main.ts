@@ -10,10 +10,11 @@ import * as env from './config/env';
 async function bootstrap() {
   const app = await NestFactory.create(ApiModule);
   const globalPrefix = 'api';
+  const port = 8081;
   app.setGlobalPrefix(globalPrefix);
-  await app.listen(env.API_SERVER_PORT);
+  await app.listen(port);
   
-  Logger.log(`🚀 Api is running on: http://localhost:${env.server_port}/${globalPrefix}`);
+  Logger.log(`${env.PRODUCT_NAME}: 🚀 Api is running on: http://localhost:${port}/${globalPrefix}`);
 }
 
 bootstrap();

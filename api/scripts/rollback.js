@@ -1,7 +1,6 @@
 const { spawn } = require('child_process');
 
-module.exports = (rc, files, error) => {
-
+module.exports = (rc, error) => {
   return new Promise((resolve, reject) => {
     try {
       console.log('> Cleaning Monorepo....')
@@ -13,8 +12,8 @@ module.exports = (rc, files, error) => {
       })
 
       //spit stdout to screen
-      child.stdout.on('data', (d) => console.log(`${d.toString()}`))
-      child.stderr.on('data', (d) => console.log(chalk.red(`${d.toString()}`)))
+      child.stdout.on('data', (d) => console.log(d.toString()))
+      child.stderr.on('data', (d) => console.log(chalk.red(d.toString())))
       child.on('close', (exitCode) => {
         console.log('> Rollback ✅ DONE')
         exitCode === 0 ? resolve() : reject(new Error('failed to rollback Nx'))
