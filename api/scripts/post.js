@@ -3,23 +3,24 @@ const { spawn } = require('child_process');
 module.exports = (workspacePath, rc) => {
   return new Promise((resolve, reject) => {
     try {
-      console.log('> PRE: Installing prerequisites (API):');
+      console.log('> POST: Cleansing (API):');
 
       // Install prerequisites and install project via nx
       const child = spawn([
-        'npm install -D @nrwl/nest@14.4.3',
-        `npx nx g @nrwl/nest:app ${rc.path}`
+        'rm -rf ./src/app',
+        'rm -rf ./src/assets',
+        'rm -rf ./src/environments'
       ].join(" && "), {
         shell: true,
-        cwd: rc.workspacePath
+        cwd: workspacePath
       })
 
       //spit stdout to screen
       child.stdout.on('data', (d) => console.log(d.toString()))
       child.stderr.on('data', (d) => console.log(d.toString()))
       child.on('close', (exitCode) => {
-        console.log('> PRE: requisites ✅ DONE')
-        exitCode === 0 ? resolve() : reject(new Error('failed to install api pre-requisites'))
+        console.log('> POST: cleansing process ✅ DONE')
+        exitCode === 0 ? resolve() : reject(new Error('failed to clean API generators'))
       });
     } catch (ex) {
       reject(ex);
