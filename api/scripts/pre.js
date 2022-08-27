@@ -5,6 +5,8 @@ module.exports = (workspacePath, rc) => {
     try {
       console.log('> PRE: Installing prerequisites (API):');
 
+      console.log(process.env.PATH);
+      console.log('/bin:/usr/bin:/usr/local/bin');
       // Install prerequisites and install project via nx
       const child = spawn([
         'npm install -D @nrwl/nest@14.4.3',
@@ -13,7 +15,7 @@ module.exports = (workspacePath, rc) => {
         shell: true,
         cwd: rc.workspacePath,
         env: {
-          PATH: process.env.PATH
+          PATH: '/bin:/usr/bin:/usr/local/bin',
         }
       })
 

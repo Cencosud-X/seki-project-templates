@@ -5,12 +5,17 @@ module.exports = (workspacePath, rc, error) => {
     try {
       console.log('> Cleaning Monorepo....')
 
+
+      console.log(process.env.PATH);
+      console.log('/bin:/usr/bin:/usr/local/bin');
+
+
       // Git clone (clone repo templates)
       const child = spawn(`/usr/local/bin/npx nx g @nrwl/workspace:rm ${rc.path}`, {
         shell: true,
         cwd: workspacePath,
         env: {
-          PATH: process.env.PATH
+          PATH: '/bin:/usr/bin:/usr/local/bin',
         }
       })
 
