@@ -8,7 +8,10 @@ module.exports = (workspacePath, rc, error) => {
       // Git clone (clone repo templates)
       const child = spawn(`/usr/local/bin/npx nx g @nrwl/workspace:rm ${rc.path}`, {
         shell: true,
-        cwd: workspacePath
+        cwd: workspacePath,
+        env: {
+          PATH: process.env.PATH
+        }
       })
 
       //spit stdout to screen

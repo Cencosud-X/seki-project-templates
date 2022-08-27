@@ -13,7 +13,7 @@ module.exports = (workspacePath, rc) => {
         shell: true,
         cwd: rc.workspacePath,
         env: {
-          PATH: '/bin:/usr/bin:/usr/local/bin'
+          PATH: process.env.PATH
         }
       })
 
