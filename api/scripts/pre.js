@@ -4,16 +4,16 @@ module.exports = (workspacePath, rc) => {
   return new Promise((resolve, reject) => {
     try {
       console.log('> PRE: Installing prerequisites (API):');
-console.log(process.env);
+
       // Install prerequisites and install project via nx
       const child = spawn([
-        '/usr/local/bin/npm install -D @nrwl/nest@14.4.3',
-        `/usr/local/bin/npx nx g @nrwl/nest:app ${rc.path}`
+        'npm install -D @nrwl/nest@14.4.3',
+        `npx nx g @nrwl/nest:app ${rc.path}`
       ].join(" && "), {
-        shell: '/bin/zsh',
+        shell: true,
         cwd: rc.workspacePath,
         env: {
-          ...process.env
+          PATH: '/bin:/usr/bin:/usr/local/bin'
         }
       })
 
