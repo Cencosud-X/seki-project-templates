@@ -7,11 +7,14 @@ module.exports = (workspacePath, rc) => {
 
       // Install prerequisites and install project via nx
       const child = spawn([
-        '/usr/local/bin/npm install -D @nrwl/nest@14.4.3',
-        `/usr/local/bin/npx nx g @nrwl/nest:app ${rc.path}`
+        'npm install -D @nrwl/nest@14.4.3',
+        `npx nx g @nrwl/nest:app ${rc.path}`
       ].join(" && "), {
         shell: true,
-        cwd: rc.workspacePath
+        cwd: rc.workspacePath,
+        env: {
+          ...window.process.env
+        }
       })
 
       //spit stdout to screen

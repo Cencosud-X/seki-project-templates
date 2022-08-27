@@ -6,7 +6,7 @@ module.exports = (workspacePath, rc, error) => {
       console.log('> Cleaning Monorepo....')
 
       // Git clone (clone repo templates)
-      const child = spawn(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
+      const child = spawn(`/usr/local/bin/npx nx g @nrwl/workspace:rm ${rc.path}`, {
         shell: true,
         cwd: workspacePath
       })
