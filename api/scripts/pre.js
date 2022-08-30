@@ -7,14 +7,12 @@ module.exports = (workspacePath, rc) => {
 
       // Install prerequisites and install project via nx
       const child = spawn([
+        'source ~/.zshrc',
         'npm install -D @nrwl/nest@14.4.3',
         `npx nx g @nrwl/nest:app ${rc.path}`
       ].join(" && "), {
-        shell: true,
-        cwd: rc.workspacePath,
-        env: {
-          PATH: `${process.env.PATH}:/usr/local/bin`,
-        }
+        shell: '/bin/zsh',
+        cwd: rc.workspacePath
       })
 
       //spit stdout to screen

@@ -6,12 +6,12 @@ module.exports = (workspacePath, rc, error) => {
       console.log('> Cleaning Monorepo....')
 
       // Git clone (clone repo templates)
-      const child = spawn(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
-        shell: true,
-        cwd: workspacePath,
-        env: {
-          PATH: `${process.env.PATH}:/usr/local/bin`,
-        }
+      const child = spawn([
+        'source ~/.zshrc',
+        `npx nx g @nrwl/workspace:rm ${rc.path}`
+      ].join(" && "), {
+        shell: '/bin/zsh',
+        cwd: workspacePath
       })
 
       //spit stdout to screen
