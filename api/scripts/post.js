@@ -11,7 +11,7 @@ module.exports = (workspacePath, rc) => {
         'rm -rf ./src/assets',
         'rm -rf ./src/environments'
       ].join(" && "), {
-        shell: true,
+        shell: '/bin/zsh',
         cwd: workspacePath
       })
 
