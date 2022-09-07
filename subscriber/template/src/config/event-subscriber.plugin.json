@@ -1,0 +1,11 @@
+{
+    "name": "events",
+    "configuration": {
+       "topics": [{
+          "name": "connect.users.created",
+          "pagination": 30,
+          "provider": "PubSub",
+          "onReceiveMessagesHandler": "onUsersCreatedHandler"
+       }]
+    }
+}

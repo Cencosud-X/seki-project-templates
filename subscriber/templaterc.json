@@ -1,0 +1,23 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/templaterc.schema.json",
+  "name": "Subscriber",
+  "tags": [
+    "Subscriber",
+    "NestJs",
+    "Node",
+    "PubSub",
+    "Kafka"
+  ],
+  "descriptions": {
+    "es": "Plantilla que implementa un subscriptor con soporte a colas de mensaje como PubSub y Kafka",
+    "en": "Template that implement a subscriber with support to PubSub and Kakfa"
+  },
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template"
+  }
+}
