@@ -1,29 +1,19 @@
-const { spawn } = require('child_process');
+module.exports = async (runner, args) => {
+  try {
+    console.log('> PRE: Installing prerequisites (API):');
 
-module.exports = (workspacePath, rc) => {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log('> PRE: Installing prerequisites (API):');
+    const rc = args.rc;
+    await runner.execute([
+      //'source ~/.zshrc',
+      'npm install -D @nrwl/nest@14.4.3',
+      `npx nx g @nrwl/nest:app ${rc.path}`
+    ], {
+      cwd: rc.workspacePath
+    })
 
-      // Install prerequisites and install project via nx
-      const child = spawn([
-        'source ~/.zshrc',
-        'npm install -D @nrwl/nest@14.4.3',
-        `npx nx g @nrwl/nest:app ${rc.path}`
-      ].join(" && "), {
-        shell: '/bin/zsh',
-        cwd: rc.workspacePath
-      })
+    console.log('> PRE: requisites ✅ DONE')
 
-      //spit stdout to screen
-      child.stdout.on('data', (d) => console.log(d.toString()))
-      child.stderr.on('data', (d) => console.log(d.toString()))
-      child.on('close', (exitCode) => {
-        console.log('> PRE: requisites ✅ DONE')
-        exitCode === 0 ? resolve() : reject(new Error('failed to install api pre-requisites'))
-      });
-    } catch (ex) {
-      reject(ex);
-    }
-  })
+  } catch {
+    throw new Error('failed to install api pre-requisites');
+  }
 }

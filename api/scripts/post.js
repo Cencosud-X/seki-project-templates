@@ -1,29 +1,18 @@
-const { spawn } = require('child_process');
+module.exports = async (runner, args) => {
+  try {
+    console.log('> POST: Cleansing (API):');
 
-module.exports = (workspacePath, rc) => {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log('> POST: Cleansing (API):');
+    await runner.execute([
+      'rm -rf ./src/app',
+      'rm -rf ./src/assets',
+      'rm -rf ./src/environments'
+    ], {
+      cwd: args.workspacePath
+    })
 
-      // Install prerequisites and install project via nx
-      const child = spawn([
-        'rm -rf ./src/app',
-        'rm -rf ./src/assets',
-        'rm -rf ./src/environments'
-      ].join(" && "), {
-        shell: '/bin/zsh',
-        cwd: workspacePath
-      })
+    console.log('> POST: cleansing process ✅ DONE');
 
-      //spit stdout to screen
-      child.stdout.on('data', (d) => console.log(d.toString()))
-      child.stderr.on('data', (d) => console.log(d.toString()))
-      child.on('close', (exitCode) => {
-        console.log('> POST: cleansing process ✅ DONE')
-        exitCode === 0 ? resolve() : reject(new Error('failed to clean API generators'))
-      });
-    } catch (ex) {
-      reject(ex);
-    }
-  })
+  } catch {
+    throw new Error('failed to clean API generators');
+  }
 }

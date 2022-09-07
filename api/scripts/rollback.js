@@ -1,28 +1,18 @@
-const { spawn } = require('child_process');
+module.exports = async (runner, args) => {
+  try {
+    console.log('> Cleaning Monorepo....')
 
-module.exports = (workspacePath, rc, error) => {
-  return new Promise((resolve, reject) => {
-    try {
-      console.log('> Cleaning Monorepo....')
+    const rc = args.rc;
+    await runner.execute([
+      //'source ~/.zshrc',
+      `npx nx g @nrwl/workspace:rm ${rc.path}`
+    ], {
+      cwd: rc.workspacePath
+    })
 
-      // Git clone (clone repo templates)
-      const child = spawn([
-        'source ~/.zshrc',
-        `npx nx g @nrwl/workspace:rm ${rc.path}`
-      ].join(" && "), {
-        shell: '/bin/zsh',
-        cwd: workspacePath
-      })
+    console.log('> Rollback ✅ DONE')
 
-      //spit stdout to screen
-      child.stdout.on('data', (d) => console.log(d.toString()))
-      child.stderr.on('data', (d) => console.log(chalk.red(d.toString())))
-      child.on('close', (exitCode) => {
-        console.log('> Rollback ✅ DONE')
-        exitCode === 0 ? resolve() : reject(new Error('failed to rollback Nx'))
-      });
-    } catch (ex) {
-      reject(ex);
-    }
-  })
+  } catch {
+    throw new Error('failed to rollback Nx');
+  }
 }

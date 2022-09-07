@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/catalogrc.schema.json",
+  "name": "Curated templates",
+  "descriptions": { 
+    "en": "A curated list for templates that fit very well in the Cenco X ecosystem",
+    "es": "Una lista de plantillas curadas que funcionan perfecto en el ecosistema de Cenco X"
+  }
+}
