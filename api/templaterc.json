@@ -17,9 +17,6 @@
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {
-    "source": "template",
-    "substitutions": {
-      "KEY_TEST": "Hola Mundo!"
-    }
+    "source": "template"
   }
 }
