@@ -1,4 +1,5 @@
 {
+   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/eventsrc.schema.json",
     "name": "events",
     "configuration": {
        "topics": [{
