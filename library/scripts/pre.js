@@ -17,6 +17,8 @@ module.exports = async (runner, args) => {
       // the nx.json file into the root project
       importPath = rc.path
 
+      console.debug(path);
+      console.debug(rc.workspacePath);
       const nxPath = path.join(rc.workspacePath, "nx.json");
       if (fs.existsSync(nxPath)) {
         const rawContent = fs.readFileSync(nxPath).toString("utf-8");
