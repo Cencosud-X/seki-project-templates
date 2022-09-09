@@ -1,5 +1,9 @@
-import onUsersCreatedHandler from './onUsersCreatedHandler'
+{{#each data.settings.configuration.topics}}
+import {{onReceiveMessagesHandler}} from './{{onReceiveMessagesHandler}}'
+{{/each}}
 
 export default {
-    onUsersCreatedHandler,
+{{#each data.settings.configuration.topics}}
+  {{onReceiveMessagesHandler}},
+{{/each}}
 }
