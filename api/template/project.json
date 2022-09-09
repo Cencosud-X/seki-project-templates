@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "{{group_folder}}/{{path}}/src",
+  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -15,12 +15,12 @@
         "{options.outputPath}"
       ],
       "options": {
-        "outputPath": "dist/{{group_folder}}/{{path}}",
-        "main": "{{group_folder}}/{{path}}/src/main.ts",
-        "tsConfig": "{{group_folder}}/{{path}}/tsconfig.app.json",
+        "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
+        "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
+        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
         "assets": [],
         "webpackConfig": [
-          "{{group_folder}}/{{path}}/webpack.js"
+          "{{data.group_folder}}/{{data.path}}/webpack.js"
         ]
       },
       "configurations": {
@@ -40,7 +40,7 @@
       ],
       "executor": "@nrwl/node:node",
       "options": {
-        "buildTarget": "{{path}}:build"
+        "buildTarget": "{{data.path}}:build"
       }
     },
     "lint": {
@@ -56,7 +56,7 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "{{group_folder}}/{{path}}/**/*.ts"
+          "{{data.group_folder}}/{{data.path}}/**/*.ts"
         ]
       }
     },
@@ -69,17 +69,17 @@
       ],
       "executor": "@nrwl/jest:jest",
       "outputs": [
-        "coverage/{{group_folder}}/{{path}}"
+        "coverage/{{data.group_folder}}/{{data.path}}"
       ],
       "options": {
-        "jestConfig": "{{group_folder}}/{{path}}/jest.config.ts",
+        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
         "passWithNoTests": true
       }
     },
     "env": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "seki env generate -p={{path}}",
+        "command": "seki env generate -p={{data.path}}",
         "cwd": "."
       }
     }

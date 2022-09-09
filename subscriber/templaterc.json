@@ -18,6 +18,9 @@
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {
-    "source": "template"
+    "source": "template",
+    "substitutions": {
+      "EVENTRC_SCHEMA_URL":"https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/plugins/eventsrc.schema.json"
+    }
   }
 }
