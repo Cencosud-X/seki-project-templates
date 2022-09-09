@@ -1,3 +1,6 @@
+import * as fs from 'fs';
+import * as path from 'path';
+
 module.exports = async (runner, args) => {
   try {
     console.log('> PRE: Installing prerequisites (Library):');
@@ -6,11 +9,22 @@ module.exports = async (runner, args) => {
 
     // plubishable: a library marked as publishable (npm publish)
     // buildable: a library marked as a "build" dist output
-    const isPublishable = rc.settings.publishable|false;
-    const isBuildable = rc.settings.buildable|false;
-    let importPath  = '';
-    if(isPublishable){
+    const isPublishable = rc.settings.publishable | false;
+    const isBuildable = rc.settings.buildable | false;
+    let importPath = '';
+    if (isPublishable) {
+      // we need to extract the npmScope var inside 
+      // the nx.json file into the root project
       importPath = rc.path
+
+      const nxPath = path.join(rc.workspacePath, "nx.json");
+      if (fs.existsSync(nxPath)) {
+        const rawContent = fs.readFileSync(nxPath).toString("utf-8");
+        const parsedContent = JSON.parse(rawContent);
+        const npmScope = `@team_${parsedContent.npmScope}`;
+        importPath = `${npmScope}/${rc.path}`;
+      }
+
     }
     await runner.execute([
       'npm install -D @nrwl/js@14.4.3',
