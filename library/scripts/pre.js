@@ -8,10 +8,13 @@ module.exports = async (runner, args) => {
     // buildable: a library marked as a "build" dist output
     const isPublishable = rc.settings.publishable|false;
     const isBuildable = rc.settings.buildable|false;
-
+    let importPath  = '';
+    if(isPublishable){
+      importPath = rc.path
+    }
     await runner.execute([
       'npm install -D @nrwl/js@14.4.3',
-      `npx nx g @nrwl/js:lib ${rc.path} ${isPublishable ? '--publishable' : ''} ${isBuildable ? '--buildable' : ''}`
+      `npx nx g @nrwl/js:lib ${rc.path} ${isPublishable ? `--publishable --importPath=\"${importPath}\"` : ''} ${isBuildable ? '--buildable' : ''}`
     ], {
       cwd: rc.workspacePath
     })
