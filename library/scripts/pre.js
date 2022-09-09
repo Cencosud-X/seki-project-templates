@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = async (runner, args) => {
-  
+  try {
     console.log('> PRE: Installing prerequisites (Library):');
 
     const rc = args.rc;
@@ -35,4 +35,8 @@ module.exports = async (runner, args) => {
 
     console.log('> PRE: requisites ✅ DONE')
 
+  } catch (ex) {
+    console.error(ex);
+    throw new Error('failed to install library pre-requisites');
+  }
 }
