@@ -4,7 +4,7 @@ module.exports = async (runner, args) => {
 
     const rc = args.rc;
     await runner.execute(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
-      cwd: rc.workspacePath
+      cwd: rc.workspace_path
     })
 
     console.log('> Rollback ✅ DONE')

@@ -7,12 +7,13 @@ module.exports = async (runner, args) => {
       'npm install -D @nrwl/nest@14.4.3',
       `npx nx g @nrwl/nest:app ${rc.path}`
     ], {
-      cwd: rc.workspacePath
+      cwd: rc.workspace_path
     })
 
     console.log('> PRE: requisites ✅ DONE')
 
   } catch {
+    console.error(ex);
     throw new Error('failed to install api pre-requisites');
   }
 }

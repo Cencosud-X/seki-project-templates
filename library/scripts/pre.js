@@ -17,9 +17,9 @@ module.exports = async (runner, args) => {
       // the nx.json file into the root project
       importPath = rc.path
 
-      console.debug("args" , args);
+      console.log("args" , args);
       
-      const nxPath = path.join(rc.workspacePath, "nx.json");
+      const nxPath = path.join(rc.workspace_path, "nx.json");
       if (fs.existsSync(nxPath)) {
         const rawContent = fs.readFileSync(nxPath).toString("utf-8");
         const parsedContent = JSON.parse(rawContent);
@@ -32,7 +32,7 @@ module.exports = async (runner, args) => {
       'npm install -D @nrwl/js@14.4.3',
       `npx nx g @nrwl/js:lib ${rc.path} ${isPublishable ? `--publishable --importPath=\"${importPath}\"` : ''} ${isBuildable ? '--buildable' : ''}`
     ], {
-      cwd: rc.workspacePath
+      cwd: rc.workspace_path
     })
 
     console.log('> PRE: requisites ✅ DONE')
