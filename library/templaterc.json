@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/templaterc.schema.json",
+  "name": "Library",
+  "descriptions": {
+    "es": "Una libreria es un proyecto que es usado por otro(s) proyectos, como por ejemplo los modelos o interfaces comunes que son utilizadas por uno o mas proyectos dentro del monorepo.",
+    "en": "A library is a shared project, that it will be using for others, like for example shared models or common interfaces which area using for other projects inside this monorepo"
+  },
+  "tags": [
+    "Library",
+    "Ts",
+    "Shared"
+  ],
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template"
+  }
+}
