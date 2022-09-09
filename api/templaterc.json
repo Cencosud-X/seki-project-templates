@@ -4,12 +4,11 @@
   "tags": [
     "Nestjs",
     "Api",
-    "Node",
-    "React"
+    "Node"
   ],
   "descriptions": {
     "es": "Plantilla desarrollada usando el framework NestJs que permite generar rutas y extensiones de forma declarativa a través de decoradores que escalan muy bien en grandes proyectos.",
-    "en": "Template developer using the NestJS framework that allow to generate routes and extend in declarative form with decorations feature that scales very well in large projects"
+    "en": "Template developed using the NestJS framework that allow to generate routes and extend in declarative form with decorations feature that scales very well in large projects"
   },
   "scripts": {
     "pre": "scripts/pre.js",
