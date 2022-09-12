@@ -1,6 +1,12 @@
 module.exports = async (runner, args) => {
   try {
     console.log('> POST: Cleansing (WEB):');
+
+    const rc = args.rc;
+    await runner.execute(`npx nx g @nrwl/workspace:rm ${rc.path}-e2e`, {
+      cwd: rc.workspace_path
+    })
+
 /*
     await runner.execute([
       'rm -rf ./src/app',
