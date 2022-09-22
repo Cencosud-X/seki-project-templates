@@ -6,7 +6,7 @@
     "build": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -34,7 +34,7 @@
     "serve": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -46,7 +46,7 @@
     "lint": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -63,7 +63,7 @@
     "test": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],

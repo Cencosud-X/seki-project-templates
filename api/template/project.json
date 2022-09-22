@@ -6,7 +6,7 @@
     "build": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -34,7 +34,7 @@
     "serve": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -46,7 +46,7 @@
     "lint": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -63,7 +63,7 @@
     "test": {
       "dependsOn": [
         {
-          "target": "env",
+          "target": "secrets",
           "projects": "self"
         }
       ],
@@ -76,10 +76,10 @@
         "passWithNoTests": true
       }
     },
-    "env": {
+    "secrets": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "seki env generate -p={{data.path}}",
+        "command": "seki secrets generate -p={{data.path}}",
         "cwd": "."
       }
     }
