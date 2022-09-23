@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {

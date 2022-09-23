@@ -18,15 +18,25 @@
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
         "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
         "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
-        "assets": [],
+        "assets": ["{{data.group_folder}}/{{data.path}}/src/config"],
         "webpackConfig": [
           "{{data.group_folder}}/{{data.path}}/webpack.js"
         ]
       },
       "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true,
+          "inspect": true
+        },
         "production": {
           "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
           "extractLicenses": true,
+          "vendorChunk": false,
           "inspect": false
         }
       }
@@ -76,10 +86,10 @@
         "passWithNoTests": true
       }
     },
-    "env": {
+    "secrets": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "seki env generate -p={{data.path}}",
+        "command": "seki secrets generate -p={{data.path}}",
         "cwd": "."
       }
     }

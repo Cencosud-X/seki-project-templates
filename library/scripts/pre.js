@@ -16,8 +16,6 @@ module.exports = async (runner, args) => {
       // we need to extract the npmScope var inside 
       // the nx.json file into the root project
       importPath = rc.path
-
-      console.log("args" , args);
       
       const nxPath = path.join(rc.workspace_path, "nx.json");
       if (fs.existsSync(nxPath)) {
