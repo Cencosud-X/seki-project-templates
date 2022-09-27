@@ -1,3 +1,3 @@
 export default {
-    CONSUMER_ID: '{{path}}',
-}
+  CONSUMER_ID: "{{data.path}}",
+};

@@ -1,24 +1,24 @@
-process.env['PUBSUB_EMULATOR_HOST'] = 'localhost:8085';
-
-import Streamer from '@team_seki/streamer';
-
-import Constants from './constants';
+import Streamer from "@team_seki/streamer";
+import Constants from "./constants";
+import * as Queue from "./queue";
 
 export default {
-    boot: async (callback: () => void): Promise<void> => {
-      // boot streamer plugin
-      await Streamer.boot([
+  boot: async (callback: () => void): Promise<void> => {
+    // boot queue
+    await Queue.boot();
+    // boot streamer plugin
+    await Streamer.boot(
+      [
         {
-          type: 'PUBSUB',
+          type: "PUBSUB",
           config: {
-            // TODO: add support to load multiples queue configs
-            google_credentials_path: './config/google-credentials.json'
-          }
+            google_credentials_path: "./config/google-credentials.json",
+          },
         },
-      ], Constants.CONSUMER_ID);
+      ],
+      Constants.CONSUMER_ID
+    );
 
-      // boot others...
-
-      callback();
-    }
-}
+    callback();
+  },
+};
