@@ -12,7 +12,7 @@ export default {
         {
           type: "PUBSUB",
           config: {
-            google_credentials_path: "./config/google-credentials.json",
+            google_credentials_path: "./config/google_credentials_default.json",
           },
         },
       ],

@@ -2,7 +2,7 @@ import Constants from '../constants';
 import { PubSub } from '@google-cloud/pubsub';
 import * as EventsRc from '../config/eventsrc.plugin.json';
 
-process.env['GOOGLE_APPLICATION_CREDENTIALS'] = `${process.cwd()}/config/google-credentials.json`;
+process.env['GOOGLE_APPLICATION_CREDENTIALS'] = `${process.cwd()}/config/google_credentials_default.json`;
 process.env['PUBSUB_EMULATOR_HOST'] = 'localhost:8085';
 const pubSub = new PubSub();
 
