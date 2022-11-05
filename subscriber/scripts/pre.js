@@ -1,6 +1,6 @@
 module.exports = async (runner, args) => {
   try {
-    console.log('> PRE: Installing prerequisites (Subscriber):');
+    console.log("> PRE: Installing prerequisites (Subscriber):");
 
     const rc = args.rc;
     await runner.execute([
@@ -13,10 +13,9 @@ module.exports = async (runner, args) => {
       cwd: rc.workspace_path
     });
 
-    console.log('> PRE: requisites ✅ DONE');
-
+    console.log("> PRE: requisites ✅ DONE");
   } catch {
     console.error(ex);
-    throw new Error('Failed to install subscriber pre-requisites');
+    throw new Error("Failed to install subscriber pre-requisites");
   }
-}
+};
