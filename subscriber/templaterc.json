@@ -15,6 +15,7 @@
   "scripts": {
     "pre": "scripts/pre.js",
     "post": "scripts/post.js",
+    "for_each": "scripts/for_each.js",
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {

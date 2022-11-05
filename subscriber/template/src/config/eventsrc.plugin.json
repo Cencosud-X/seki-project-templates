@@ -1,5 +1,0 @@
-{
-   "$schema": "{{data.EVENTRC_SCHEMA_URL}}",
-    "name": "{{data.settings.name}}",
-    "configuration":{{#json data.settings.configuration}}{{/json}}
-}

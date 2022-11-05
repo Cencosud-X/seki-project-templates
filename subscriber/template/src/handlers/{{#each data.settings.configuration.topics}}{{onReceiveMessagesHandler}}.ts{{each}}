@@ -1,7 +1,19 @@
-import { IHandler, IMessage } from '@team_seki/event-streamer';
+import { IHandler, IMessage } from '@team_seki/%PROVIDER_TYPE%-streamer-plugin';
+import constants from '../constants';
 
 export default class Handler extends IHandler {
-    async handleMessage(message: IMessage): Promise<void> {
-      console.log('User created received: ', message.getParsedData(), message.id);
-    }
+  constructor() {
+    super({
+      topic: constants.TOPIC_%FOR_EACH_UPPERCASE_HANDLER_NAME_REPLACEMENT%,
+      artifact_name: constants.ARTIFACT_NAME
+    })
+  }
+
+  async onReady(): Promise<void> {
+    console.log('%FOR_EACH_HANDLER_NAME_REPLACEMENT% connected and ready')
+  }
+
+  async handleMessage(message: IMessage): Promise<void> {
+    console.log('Message received: ', message);
+  }
 }
