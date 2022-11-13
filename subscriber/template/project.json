@@ -94,5 +94,7 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    "REQUIRED:GOLDEN"
+  ]
 }
