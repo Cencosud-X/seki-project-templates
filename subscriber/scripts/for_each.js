@@ -15,7 +15,7 @@ module.exports = async (runner, args) => {
       // handler prop in the "topic" configuration
       const handlerToFind = path.basename(file, ".ts");
       if (!handlerToFind.startsWith("index")) {
-        const topics = rc.settings.configuration.topics
+        const topics = rc.settings.topics
         const topic = topics.find((topic) => topic.onReceiveMessagesHandler === handlerToFind);
         if (topic) {
           // console.log(`  > FOR_EACH: Match file (${path.basename(file)}):`);

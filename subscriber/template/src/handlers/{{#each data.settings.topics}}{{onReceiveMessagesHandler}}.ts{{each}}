@@ -10,7 +10,7 @@ export default class Handler extends IHandler {
   }
 
   async onReady(): Promise<void> {
-    console.log('%FOR_EACH_HANDLER_NAME_REPLACEMENT% connected and ready')
+    console.log(`%FOR_EACH_HANDLER_NAME_REPLACEMENT% Handler: ready and listening from ${this.props.topic}`);
   }
 
   async handleMessage(message: IMessage): Promise<void> {

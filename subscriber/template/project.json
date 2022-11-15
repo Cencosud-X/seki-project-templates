@@ -95,6 +95,6 @@
     }
   },
   "tags": [
-    "REQUIRED:GOLDEN"
+    "{{data.TAG_GOLDEN_REQUIRED}}"
   ]
 }

@@ -1,5 +1,5 @@
 export default {
-  {{#each data.settings.configuration.topics}}
+  {{#each data.settings.topics}}
   /**
    * ```js
    * {

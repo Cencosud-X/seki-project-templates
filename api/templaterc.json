@@ -16,6 +16,9 @@
     "rollback": "scripts/rollback.js"
   },
   "interpolations": {
-    "source": "template"
+    "source": "template",
+    "substitutions": {
+      "TAG_GOLDEN_REQUIRED": "REQUIRED:GOLDEN"
+    }
   }
 }
