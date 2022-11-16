@@ -5,7 +5,8 @@ export default class Handler extends IHandler {
   constructor() {
     super({
       topic: constants.TOPIC_%FOR_EACH_UPPERCASE_HANDLER_NAME_REPLACEMENT%,
-      artifact_name: constants.ARTIFACT_NAME
+      artifactName: constants.ARTIFACT_NAME,
+      maxNumberOfFailures: 5
     })
   }
 
