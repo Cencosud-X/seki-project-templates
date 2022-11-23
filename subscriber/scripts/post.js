@@ -7,7 +7,7 @@ module.exports = async (runner, args) => {
       'rm -rf ./src/app',
       'rm -rf ./src/assets',
       'rm -rf ./src/environments'//,
-      //`npx nx run ${rc.path}:secrets`
+      `npx nx run ${rc.path}:secrets`
     ], {
       cwd: args.workspacePath
     })
