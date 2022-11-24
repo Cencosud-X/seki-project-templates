@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
+  "name": "Electron",
+  "tags": [
+    "Packager",
+    "Desktop"
+  ],
+  "kind": "electron",
+  "folder": "apps",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
+  "descriptions": {
+    "es": "Plantilla de proyecto que incluye <b>Electron</b> como el empaquetador principal del producto para desarrollar aplicaciones windows / mac.  <br/> Es necesaria una interfaz grafica web para ser integrada en la app.",
+    "en": "Long description"
+  },
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template"
+  }
+}
