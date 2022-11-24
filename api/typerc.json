@@ -1,11 +1,16 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/templaterc.schema.json",
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
   "name": "Api",
   "tags": [
     "Nestjs",
     "Api",
     "Node"
   ],
+  "kind": "api",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
   "descriptions": {
     "es": "Plantilla desarrollada usando el framework NestJs que permite generar rutas y extensiones de forma declarativa a través de decoradores que escalan muy bien en grandes proyectos.",
     "en": "Template developed using the NestJS framework that allow to generate routes and extend in declarative form with decorations feature that scales very well in large projects"

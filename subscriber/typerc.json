@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/templaterc.schema.json",
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
   "name": "Subscriber",
   "tags": [
     "Subscriber",
@@ -8,6 +8,11 @@
     "PubSub",
     "Kafka"
   ],
+  "kind": "subscriber",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
   "descriptions": {
     "es": "Plantilla que implementa un subscriptor con soporte a colas de mensaje como PubSub y Kafka",
     "en": "Template that implement a subscriber with support to PubSub and Kakfa"

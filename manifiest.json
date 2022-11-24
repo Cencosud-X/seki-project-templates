@@ -1,8 +1,17 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/catalogrc.schema.json",
-  "name": "Curated templates",
-  "descriptions": { 
-    "en": "A curated list for templates that fit very well in the Cenco X ecosystem",
-    "es": "Una lista de plantillas curadas que funcionan perfecto en el ecosistema de Cenco X"
-  }
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/manifiestrc.schema.json",
+  "name": "Curated cloud components",
+  "author": {
+    "github_user": "dmunozgaete",
+    "name": "Team Seki"
+  },
+  "descriptions": {
+    "en": "A curated list for project types that fit very well in the Cenco X ecosystem",
+    "es": "Una lista de tipos de proyectos curados que funcionan perfecto en el ecosistema de Cenco X"
+  },
+  "types": [
+    "api/typerc.json", 
+    "library/typerc.json", 
+    "subscriber/typerc.json"
+  ]
 }

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/templaterc.schema.json",
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
   "name": "Web",
   "tags": [
     "Nestjs",
@@ -7,6 +7,11 @@
     "Node",
     "React"
   ],
+  "kind": "web",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
   "descriptions": {
     "es": "Plantilla de proyecto que se encuentra desarrollada bajo el framework React con funcionalidades de live reloading y webpack como su empaquetador.",
     "en": "Project template developed under the Reqact framework with live reloading and webpak as core funcionalities, This template use react as the design library"

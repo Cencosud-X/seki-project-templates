@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
+  "name": "Library",
+  "tags": [
+    "Library",
+    "Ts",
+    "Shared"
+  ],
+  "kind": "library",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
+  "descriptions": {
+    "es": "Una libreria es un proyecto que es usado por otro(s) proyectos, como por ejemplo los modelos o interfaces comunes que son utilizadas por uno o mas proyectos dentro del monorepo.",
+    "en": "A library is a shared project, that it will be using for others, like for example shared models or common interfaces which area using for other projects inside this monorepo"
+  },
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template"
+  }
+}
