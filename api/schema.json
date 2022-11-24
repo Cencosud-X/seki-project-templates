@@ -7,7 +7,7 @@
           "type": "string",
           "description": "Project type",
           "enum": [
-            "api"
+            "api_koa"
           ],
           "readOnly": true
         },
