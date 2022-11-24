@@ -11,32 +11,20 @@
         }
       ],
       "executor": "@nrwl/node:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
         "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
         "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
-        "assets": ["{{data.group_folder}}/{{data.path}}/src/config"],
+        "assets": [],
         "webpackConfig": [
           "{{data.group_folder}}/{{data.path}}/webpack.js"
         ]
       },
       "configurations": {
-        "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true,
-          "inspect": true
-        },
         "production": {
           "optimization": true,
-          "sourceMap": false,
-          "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false,
           "inspect": false
         }
       }
@@ -51,23 +39,18 @@
       "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "{{data.path}}:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "{{data.path}}:build:production"
+        }
       }
     },
     "lint": {
-      "dependsOn": [
-        {
-          "target": "secrets",
-          "projects": "self"
-        }
-      ],
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "{{data.group_folder}}/{{data.path}}/**/*.ts"
-        ]
+        "lintFilePatterns": ["apps/{{data.path}}/**/*.ts"]
       }
     },
     "test": {
@@ -78,11 +61,9 @@
         }
       ],
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/{{data.group_folder}}/{{data.path}}"
-      ],
+      "outputs": ["coverage/apps/{{data.path}}"],
       "options": {
-        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
+        "jestConfig": "apps/{{data.path}}/jest.config.ts",
         "passWithNoTests": true
       }
     },
