@@ -9,6 +9,7 @@
     "Kafka"
   ],
   "kind": "subscriber",
+  "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",
     "dark": "icons/icon.svg"
