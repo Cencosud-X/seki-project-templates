@@ -6,7 +6,7 @@
     "Web server",
     "Koa"
   ],
-  "kind": "api",
+  "kind": "api_koa",
   "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",
