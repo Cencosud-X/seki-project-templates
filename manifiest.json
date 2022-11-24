@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/manifiestrc.schema.json",
-  "name": "Curated cloud components",
+  "name": "Curated project types",
   "author": {
     "github_user": "dmunozgaete",
     "name": "Team Seki"
@@ -10,7 +10,8 @@
     "es": "Una lista de tipos de proyectos curados que funcionan perfecto en el ecosistema de Cenco X"
   },
   "types": [
-    "api/typerc.json", 
+    "api/typerc.json",
+    "api_koa/typerc.json",
     "library/typerc.json", 
     "subscriber/typerc.json"
   ]
