@@ -11,7 +11,6 @@
   },
   "types": [
     "api/typerc.json",
-    "api_koa/typerc.json",
     "library/typerc.json", 
     "subscriber/typerc.json"
   ]
