@@ -5,6 +5,10 @@
     "github_user": "dmunozgaete",
     "name": "Team Seki"
   },
+  "icons": {
+    "dark": "logo.svg",
+    "light": "logo.svg"
+  },
   "descriptions": {
     "en": "A curated list for project types that fit very well in the Cenco X ecosystem",
     "es": "Una lista de tipos de proyectos curados que funcionan perfecto en el ecosistema de Cenco X"
