@@ -12,18 +12,16 @@ module.exports = async (runner, args) => {
     const isPublishable = rc.settings.publishable | false;
     const isBuildable = rc.settings.buildable | false;
     let publishableArg = '';
-    let buildableArg = '';
+    const buildableArg = isBuildable ? '--buildable' : '';
+    const tagArg =  isBuildable || isPublishable ? '--tags=\"REQUIRED:GOLDEN\"' : '';
     if (isPublishable) {
       const npmOrganization = rc.settings.npm.organization;
       const importPath = `@${npmOrganization}/${rc.path}`;
-      publishableArg = `--publishable --importPath=\"${importPath}\" --tags=\"REQUIRED:GOLDEN\"`;
-    }
-    if(isBuildable) {
-      buildableArg = '--buildable --tags=\"REQUIRED:GOLDEN\"';
+      publishableArg = `--publishable --importPath=\"${importPath}\"`;
     }
     await runner.execute([
       'npm install -D @nrwl/js@14.4.3',
-      `npx nx g @nrwl/js:lib ${rc.path} ${publishableArg} ${buildableArg}`
+      `npx nx g @nrwl/js:lib ${rc.path} ${publishableArg} ${buildableArg} ${tagArg}`
     ], {
       cwd: rc.workspace_path
     })
