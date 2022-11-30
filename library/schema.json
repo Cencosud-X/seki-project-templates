@@ -40,6 +40,9 @@
                     "description": "npm organization name"
                   }
                 }
+              },
+              "buildable": {
+                "const": true
               }
             },
             "required": ["npm"]
