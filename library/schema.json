@@ -36,9 +36,13 @@
                 "properties": {
                   "organization": {
                     "type": "string",
+                    "enum": ["cencosudx", "team_seki"],
                     "description": "npm organization name"
                   }
                 }
+              },
+              "buildable": {
+                "const": true
               }
             },
             "required": ["npm"]
