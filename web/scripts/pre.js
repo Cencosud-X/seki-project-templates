@@ -5,7 +5,10 @@ module.exports = async (runner, args) => {
     const rc = args.rc;
     await runner.execute([
       'npm install -D @nrwl/web@14.4.3',
-      `npx nx g @nrwl/web:app ${rc.path}`
+      `npx nx g @nrwl/web:app ${rc.path}`,
+      'rm -rf ./src/app',
+      'rm -rf ./src/assets',
+      'rm -rf ./src/environments',
     ], {
       cwd: rc.workspace_path
     })
