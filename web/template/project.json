@@ -1,7 +1,7 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
   "projectType": "application",
+  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
   "targets": {
     "build": {
       "dependsOn": [
@@ -10,34 +10,29 @@
           "projects": "self"
         }
       ],
-      "executor": "@nrwl/node:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
-        "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
+        "compiler": "babel",
+        "index": "{{data.group_folder}}/{{data.path}}/src/index.html",
+        "baseHref": "/",
+        "main": "{{data.group_folder}}/{{data.path}}/src/main.tsx",
+        "polyfills": "{{data.group_folder}}/{{data.path}}/src/polyfills.ts",
         "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
-        "assets": ["{{data.group_folder}}/{{data.path}}/src/config"],
-        "webpackConfig": [
-          "{{data.group_folder}}/{{data.path}}/webpack.js"
-        ]
+        "assets": ["{{data.group_folder}}/{{data.path}}/src/assets", "{{data.group_folder}}/{{data.path}}/src/config"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "{{data.group_folder}}/{{data.path}}/webpack.js"
       },
       "configurations": {
-        "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true,
-          "inspect": true
-        },
         "production": {
           "optimization": true,
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false,
-          "inspect": false
+          "vendorChunk": false
         }
       }
     },
@@ -48,39 +43,31 @@
           "projects": "self"
         }
       ],
-      "executor": "@nrwl/node:node",
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
       "options": {
         "buildTarget": "{{data.path}}:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "{{data.path}}:build:development"
+        },
+        "production": {
+          "buildTarget": "{{data.path}}:build:production",
+          "hmr": false
+        }
       }
     },
     "lint": {
-      "dependsOn": [
-        {
-          "target": "secrets",
-          "projects": "self"
-        }
-      ],
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "{{data.group_folder}}/{{data.path}}/**/*.ts"
-        ]
+        "lintFilePatterns": ["{{data.group_folder}}/{{data.path}}/**/*.ts"]
       }
     },
     "test": {
-      "dependsOn": [
-        {
-          "target": "secrets",
-          "projects": "self"
-        }
-      ],
       "executor": "@nrwl/jest:jest",
-      "outputs": [
-        "coverage/{{data.group_folder}}/{{data.path}}"
-      ],
+      "outputs": ["coverage/{{data.group_folder}}/{{data.path}}"],
       "options": {
         "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
         "passWithNoTests": true
@@ -94,7 +81,5 @@
       }
     }
   },
-  "tags": [
-    "REQUIRED:GOLDEN"
-  ]
+  "tags": ["REQUIRED:GOLDEN"]
 }
