@@ -4,7 +4,11 @@ module.exports = async (runner, args) => {
 
     const rc = args.rc;
     await runner.execute([
-      `npx nx g @nrwl/workspace:rm ${rc.path}-e2e`
+      `npx nx g @nrwl/workspace:rm ${rc.path}-e2e`,
+      'rm -rf ./src/app',
+      'rm -rf ./src/test-setup.ts',
+      //'rm -rf ./src/assets',
+      'rm -rf ./src/environments',
     ], {
       cwd: rc.workspace_path
     })
