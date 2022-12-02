@@ -13,7 +13,7 @@ module.exports = async (runner, args) => {
 
     console.log('> PRE: requisites ✅ DONE')
 
-  } catch {
+  } catch (ex) {
     console.error(ex);
     throw new Error('failed to install web pre-requisites');
   }
