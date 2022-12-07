@@ -7,6 +7,7 @@ module.exports = async (runner, args) => {
       `npx nx g @nrwl/workspace:rm ${rc.path}-e2e`,
       'rm -rf ./src/app',
       'rm -rf ./src/test-setup.ts',
+      'rm -rf ./favicon.ico',
       //'rm -rf ./src/assets',
       'rm -rf ./src/environments',
     ], {
