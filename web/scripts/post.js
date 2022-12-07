@@ -10,7 +10,7 @@ module.exports = async (runner, args) => {
       //'rm -rf ./src/assets',
       'rm -rf ./src/environments',
     ], {
-      cwd: rc.workspace_path
+      cwd: args.workspacePath
     })
 
     console.log('> POST: cleansing process ✅ DONE');

@@ -27,12 +27,18 @@
         "webpackConfig": "{{data.group_folder}}/{{data.path}}/webpack.js"
       },
       "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
         "production": {
           "optimization": true,
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false
+          "vendorChunk": true
         }
       }
     },
