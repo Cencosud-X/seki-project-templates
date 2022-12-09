@@ -19,6 +19,8 @@ module.exports = async (runner, args) => {
       const importPath = `@${npmOrganization}/${rc.path}`;
       publishableArg = `--publishable --importPath=\"${importPath}\"`;
     }
+
+    console.log('isBuildable', buildableArg)
     await runner.execute([
       'npm install -D @nrwl/js@14.4.3',
       `npx nx g @nrwl/js:lib ${rc.path} ${publishableArg} ${buildableArg} ${tagArg}`
