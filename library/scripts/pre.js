@@ -12,7 +12,7 @@ module.exports = async (runner, args) => {
     const isPublishable = rc.settings.publishable | false;
     const isBuildable = rc.settings.buildable | false;
     let publishableArg = '';
-    const buildableArg = isBuildable ? '--buildable' : '';
+    const buildableArg = `--buildable=${isBuildable}`;
     const tagArg =  isBuildable || isPublishable ? '--tags=\"REQUIRED:GOLDEN\"' : '';
     if (isPublishable) {
       const npmOrganization = rc.settings.npm.organization;
