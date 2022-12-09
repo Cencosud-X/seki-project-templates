@@ -9,8 +9,8 @@ module.exports = async (runner, args) => {
 
     // plubishable: a library marked as publishable (npm publish)
     // buildable: a library marked as a "build" dist output
-    const isPublishable = !!rc.settings.publishable | false;
-    const isBuildable = !!rc.settings.buildable | false;
+    const isPublishable = !!rc.settings.publishable;
+    const isBuildable = !!rc.settings.buildable;
     let publishableArg = '';
     const buildableArg = `--buildable=${isBuildable}`;
     const tagArg =  isBuildable || isPublishable ? '--tags=\"REQUIRED:GOLDEN\"' : '';
