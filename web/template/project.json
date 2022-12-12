@@ -12,7 +12,7 @@
       ],
       "executor": "@nrwl/web:webpack",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
+      "defaultConfiguration": "release",
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
         "compiler": "babel",
@@ -33,7 +33,7 @@
           "sourceMap": true,
           "vendorChunk": true
         },
-        "production": {
+        "release": {
           "optimization": true,
           "sourceMap": false,
           "namedChunks": false,
@@ -58,8 +58,8 @@
         "development": {
           "buildTarget": "{{data.path}}:build:development"
         },
-        "production": {
-          "buildTarget": "{{data.path}}:build:production",
+        "release": {
+          "buildTarget": "{{data.path}}:build:release",
           "hmr": false
         }
       }

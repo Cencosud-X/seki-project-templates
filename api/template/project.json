@@ -11,9 +11,8 @@
         }
       ],
       "executor": "@nrwl/node:webpack",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "release",
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
         "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
@@ -31,12 +30,12 @@
           "vendorChunk": true,
           "inspect": true
         },
-        "production": {
+        "release": {
           "optimization": true,
           "sourceMap": false,
           "namedChunks": false,
           "extractLicenses": true,
-          "vendorChunk": false,
+          "vendorChunk": true,
           "inspect": false
         }
       }
@@ -49,8 +48,18 @@
         }
       ],
       "executor": "@nrwl/node:node",
+      "defaultConfiguration": "development",
       "options": {
         "buildTarget": "{{data.path}}:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "{{data.path}}:build:development"
+        },
+        "release": {
+          "buildTarget": "{{data.path}}:build:release",
+          "hmr": false
+        }
       }
     },
     "lint": {
