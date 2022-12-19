@@ -9,6 +9,9 @@
           ],
           "type": "object",
           "description": "Specific configuration",
+          "default": {
+            "port": 8080
+          },
           "properties": {
             "port": {
               "type": "integer",

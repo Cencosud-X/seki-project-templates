@@ -4,7 +4,7 @@
     {
       "properties": {
         "settings": {
-          "required": [],
+          "required": ["schedule"],
           "type": "object",
           "description": "Specific configuration",
           "default": {
@@ -13,7 +13,8 @@
           "properties": {
             "schedule": {
               "description": "Cron tab expression used to schedule jobs, it must be written in Cron format",
-              "type":"string"
+              "type": "string",
+              "default": "*/30 * * * *"
             }
           }
         }
