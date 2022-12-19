@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "settings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "default": {
+            "schedule": "*/30 * * * *"
+          },
+          "properties": {
+            "schedule": {
+              "description": "Cron tab expression used to schedule jobs, it must be written in Cron format",
+              "type":"string"
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/type.schema.json"
+    }
+  ]
+}

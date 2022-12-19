@@ -1,0 +1,31 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
+  "name": "CronJob",
+  "tags": [
+    "Cron",
+    "Job",
+    "Node",
+    "Typescript"
+  ],
+  "kind": "cronjob",
+  "folder": "apps",
+  "icons": {
+    "light": "icons/icon.svg",
+    "dark": "icons/icon.svg"
+  },
+  "descriptions": {
+    "es": "Plantilla de proyecto para crear cron jons usando Node js y Typescript. La plantilla cuenta con live reload en el ambiente de desarrollo.",
+    "en": "Project template to create cron jobs using Node js and Typescript. The template provide live reload in development."
+  },
+  "scripts": {
+    "pre": "scripts/pre.js",
+    "post": "scripts/post.js",
+    "rollback": "scripts/rollback.js"
+  },
+  "interpolations": {
+    "source": "template",
+    "substitutions": {
+      "TAG_GOLDEN_REQUIRED": "REQUIRED:GOLDEN"
+    }
+  }
+}
