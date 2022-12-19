@@ -2,10 +2,11 @@
   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
   "name": "Cron Job",
   "tags": [
-    "Cron",
-    "Job",
-    "Node",
-    "Typescript"
+    "cron",
+    "job",
+    "node",
+    "typescript",
+    "experimental"
   ],
   "kind": "cronjob",
   "folder": "apps",
