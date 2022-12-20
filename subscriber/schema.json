@@ -24,7 +24,6 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "pattern": "^[a-z]{2}\\.[a-z-]+\\.[a-z-]+\\.[a-z-]+\\.v{1}\\d{1,2}$",
                     "description": "Topic name to subscribe"
                   },
                   "provider": {
