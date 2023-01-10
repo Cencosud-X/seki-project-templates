@@ -23,7 +23,8 @@ module.exports = async (runner, args) => {
             .replace(/\%FOR_EACH_UPPERCASE_HANDLER_NAME_REPLACEMENT\%/ig, topic.onReceiveMessagesHandler.toUpperCase())
             .replace(/\%FOR_EACH_HANDLER_NAME_REPLACEMENT\%/ig, topic.onReceiveMessagesHandler)
             .replace(/\%PROVIDER_TYPE\%/ig, topic.provider.toLowerCase())
-            
+            .replace(/\%FOR_EACH_HANDLER_ARTIFACT_NAME_REPLACEMENT\%/ig,
+              topic.provider.toUpperCase() !== 'KAFKA' ? 'constants.ARTIFACT_NAME': '`${constants.ARTIFACT_NAME}-${constants.TOPIC_' + topic.onReceiveMessagesHandler.toUpperCase() + '}`')
         }
       }
     }
