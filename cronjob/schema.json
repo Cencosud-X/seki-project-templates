@@ -4,19 +4,17 @@
     {
       "properties": {
         "settings": {
-          "required": [
-            "port"
-          ],
+          "required": ["schedule"],
           "type": "object",
           "description": "Specific configuration",
           "default": {
-            "port": 8080
+            "schedule": "*/30 * * * *"
           },
           "properties": {
-            "port": {
-              "type": "integer",
-              "description": "Port to lift the api",
-              "default": 8080
+            "schedule": {
+              "description": "Cron tab expression used to schedule jobs, it must be written in Cron format",
+              "type": "string",
+              "default": "*/30 * * * *"
             }
           }
         }

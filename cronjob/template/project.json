@@ -1,0 +1,109 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/node:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "release",
+      "options": {
+        "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
+        "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
+        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
+        "assets": ["{{data.group_folder}}/{{data.path}}/src/config"],
+        "webpackConfig": [
+          "{{data.group_folder}}/{{data.path}}/webpack.js"
+        ]
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true,
+          "inspect": true
+        },
+        "release": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": true,
+          "inspect": false
+        }
+      }
+    },
+    "serve": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/node:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "{{data.path}}:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "{{data.path}}:build:development"
+        },
+        "release": {
+          "buildTarget": "{{data.path}}:build:release",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "{{data.group_folder}}/{{data.path}}/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/{{data.group_folder}}/{{data.path}}"
+      ],
+      "options": {
+        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "secrets": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "seki secrets generate -p={{data.path}}",
+        "cwd": "."
+      }
+    }
+  },
+  "tags": [
+    "{{data.TAG_GOLDEN_REQUIRED}}"
+  ]
+}
