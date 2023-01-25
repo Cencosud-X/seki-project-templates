@@ -17,6 +17,11 @@
               "type": "integer",
               "description": "Port to lift the api",
               "default": 8080
+            },
+            "internal": {
+              "type": "boolean",
+              "description": "Defines that the api will be for internal use, it will not be exposed to the internet",
+              "default": false
             }
           }
         }
