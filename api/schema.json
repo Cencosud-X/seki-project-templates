@@ -21,7 +21,7 @@
             "internal": {
               "type": "boolean",
               "description": "Defines that the api will be for internal use, it will not be exposed to the internet",
-              "default": false
+              "default": true
             }
           }
         }
