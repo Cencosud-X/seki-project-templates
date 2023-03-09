@@ -8,7 +8,7 @@ module.exports = async (runner, args) => {
         "npm install --save-dev @nrwl/nest@14.4.3",
         "npm install --save @team_seki/subscriber-plugin@1.0.8",
         "npm install --save @team_seki/kafka-streamer-plugin@1.0.9",
-        "npm install --save @team_seki/pubsub-streamer-plugin@1.0.16",
+        "npm install --save @team_seki/pubsub-streamer-plugin@1.1.4",
         `npx nx g @nrwl/nest:app ${rc.path}`,
       ],
       {
