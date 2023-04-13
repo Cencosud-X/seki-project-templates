@@ -23,5 +23,6 @@
   },
   "interpolations": {
     "source": "template"
-  }
+  },
+  "color": "#B469FF"
 }

@@ -26,5 +26,9 @@
     "substitutions": {
       "TAG_GOLDEN_REQUIRED": "REQUIRED:GOLDEN"
     }
+  },
+  "color": "#5584FF",
+  "stream": {
+    "uid": "0c56038ea2f4eded82e9f720e0bcd38e"
   }
 }
