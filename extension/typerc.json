@@ -1,21 +1,22 @@
 {
   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
-  "name": "Web",
+  "name": "Seki Extension",
   "tags": [
     "Nestjs",
-    "Api",
+    "Extension",
     "Node",
-    "React"
+    "React",
+    "experimental"
   ],
-  "kind": "web",
+  "kind": "extension",
   "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",
     "dark": "icons/icon.svg"
   },
   "descriptions": {
-    "es": "Plantilla de proyecto que se encuentra desarrollada bajo el framework React con funcionalidades de live reloading y webpack como su empaquetador.",
-    "en": "Project template based on the React framework with live reloading and webpack"
+    "es": "Plantilla de proyecto para extensiones de Seki",
+    "en": "Seki extension project template"
   },
   "scripts": {
     "pre": "scripts/pre.js",
