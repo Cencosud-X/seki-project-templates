@@ -1,7 +1,7 @@
 import { Logger } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 
-import { ApiModule } from './api/ApiModule';
+import { ApiModule } from './api/api.module';
 import secrets from './config/secrets';
 
  async function bootstrap() {

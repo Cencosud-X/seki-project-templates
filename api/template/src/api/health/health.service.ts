@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class Service {
+export class HealthService {
   async ping(): Promise<string> {
     return "pong";
   }
@@ -13,4 +13,4 @@ export class Service {
   }
 }
 
-export default Service;
+export default HealthService;
