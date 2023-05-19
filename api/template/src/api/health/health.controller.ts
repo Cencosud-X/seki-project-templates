@@ -1,9 +1,10 @@
 import { Controller, Get } from '@nestjs/common';
-import { Service } from './Service';
+
+import { HealthService } from './health.service';
 
 @Controller()
-export class DefaultController {
-  constructor(private readonly service: Service) { }
+export class HealthController {
+  constructor(private readonly service: HealthService) { }
 
   @Get("health")
   health() {
@@ -16,4 +17,4 @@ export class DefaultController {
   }
 }
 
-export default DefaultController;
+export default HealthController;
