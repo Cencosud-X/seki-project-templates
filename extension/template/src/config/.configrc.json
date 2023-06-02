@@ -1,8 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/secrets/configrc.schema.json",
-  "secrets": {
-    "includes": [
-      "PRODUCT_NAME"
-    ]
-  }
-}
