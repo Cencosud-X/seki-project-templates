@@ -18,6 +18,8 @@
     "library/typerc.json", 
     "subscriber/typerc.json",
     "web/typerc.json",
-    "cronjob/typerc.json"
+    "extension/typerc.json",
+    "cronjob/typerc.json",
+    "cli/typerc.json"
   ]
 }

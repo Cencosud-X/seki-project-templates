@@ -1,0 +1,54 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "dependencies"
+        }
+      ],
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
+        "main": "{{data.group_folder}}/{{data.path}}/src/index.ts",
+        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.lib.json",
+        "assets": ["{{data.group_folder}}/{{data.path}}/*.md"]
+      }
+    },
+    "package": {
+      "dependsOn": [
+        {
+          "target": "build",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "parallel": false,
+        "command": "npx pkg dist/{{data.group_folder}}/{{data.path}}/src/index.js -t={{#each data.settings.targets}}{{#if @index}},{{/if}}{{this}}{{/each}} --output=dist/packages/{{data.path}}/{{data.settings.output}}"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["{{data.group_folder}}/{{data.path}}/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/{{data.group_folder}}/{{data.path}}"],
+      "options": {
+        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": [
+    "{{data.TAG_GOLDEN_REQUIRED}}"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "settings": {
+          "required": ["output", "targets"],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+           "output": {
+            "type": "string",
+            "description": "Output filename",
+            "minLength": 3,
+            "maxLength": 50,
+            "pattern": "^[a-zA-Z0-9]+$"
+           },
+           "targets": {
+            "type":"array",
+            "description": "Target consists of 2 elements, separated by dashes: platform and arch, for example macos-x64 or linux-arm64",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": ["macos-x64", "linux-x64", "macos-arm64", "linux-arm64"]
+            },
+            "default": ["macos-x64", "linux-x64"]
+           }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/type.schema.json"
+    }
+  ]
+}
