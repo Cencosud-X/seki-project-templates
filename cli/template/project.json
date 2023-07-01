@@ -31,7 +31,7 @@
       "options": {
         "outputPath": "dist/packages/{{data.path}}",
         "parallel": false,
-        "command": "npx pkg dist/{{data.group_folder}}/{{data.path}}/src/index.js -t={{#each data.settings.targets}}{{#if @index}},{{/if}}{{this}}{{/each}} --output=dist/packages/{{data.path}}/{{data.settings.output}}"
+        "command": "npx pkg dist/{{data.group_folder}}/{{data.path}}/src/index.js -t={{#each data.settings.targets}}{{#if @index}},{{/if}}{{this}}{{/each}} --output=dist/packages/{{data.path}}/{{data.settings.command}}"
       }
     },
     "lint": {

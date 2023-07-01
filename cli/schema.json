@@ -4,13 +4,13 @@
     {
       "properties": {
         "settings": {
-          "required": ["output", "targets"],
+          "required": ["command", "targets"],
           "type": "object",
           "description": "Specific configuration",
           "properties": {
-           "output": {
+           "command": {
             "type": "string",
-            "description": "Output filename",
+            "description": "Command to be executed by the user",
             "minLength": 3,
             "maxLength": 50,
             "pattern": "^[a-zA-Z0-9]+$"
@@ -25,6 +25,22 @@
               "enum": ["macos-x64", "linux-x64", "macos-arm64", "linux-arm64"]
             },
             "default": ["macos-x64", "linux-x64"]
+           },
+           "publish": {
+            "type":"object",
+            "required": ["organization", "repository"],
+            "properties": {
+              "organization": {
+                "type": "string",
+                "description": "Github organization where the CLI will be published",
+                "minLength": 3
+              },
+              "repository": {
+                "type": "string",
+                "description": "Github repository where the CLI will be published",
+                "minLength": 3
+              }
+            }
            }
           }
         }
