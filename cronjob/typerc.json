@@ -5,8 +5,7 @@
     "cron",
     "job",
     "node",
-    "typescript",
-    "experimental"
+    "typescript"
   ],
   "kind": "cronjob",
   "folder": "apps",

@@ -3,7 +3,7 @@
   "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
   "projectType": "library",
   "targets": {
-    "build": {
+    "make": {
       "dependsOn": [
         {
           "target": "build",
@@ -19,15 +19,17 @@
         "assets": ["{{data.group_folder}}/{{data.path}}/*.md"]
       }
     },
-    "package": {
+    "build": {
       "dependsOn": [
         {
-          "target": "build",
+          "target": "make",
           "projects": "self"
         }
       ],
       "executor": "@nrwl/workspace:run-commands",
+      "outputs": ["{options.outputPath}"],
       "options": {
+        "outputPath": "dist/packages/{{data.path}}",
         "parallel": false,
         "command": "npx pkg dist/{{data.group_folder}}/{{data.path}}/src/index.js -t={{#each data.settings.targets}}{{#if @index}},{{/if}}{{this}}{{/each}} --output=dist/packages/{{data.path}}/{{data.settings.output}}"
       }
