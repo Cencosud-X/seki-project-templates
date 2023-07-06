@@ -36,7 +36,7 @@
                 "properties": {
                   "organization": {
                     "type": "string",
-                    "enum": ["cencosudx", "team_seki"],
+                    "enum": ["cencosudx", "team_seki", "team_yumi"],
                     "description": "npm organization name"
                   }
                 }
