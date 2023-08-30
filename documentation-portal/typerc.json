@@ -9,6 +9,7 @@
     "React"
   ],
   "kind": "documentation-portal",
+  
   "pipeline_kind": "web",
   "folder": "apps",
   "icons": {
