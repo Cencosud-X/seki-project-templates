@@ -55,12 +55,6 @@ stateDiagram-v2
 ### Fase de Diálogo
 Solicitud inicial donde se invoca al proveedor de identidad para iniciar un dialogo web donde se presentara el sistema de autenticación propietaria que guiara a la **identidad a comprobar como valida** por el procesos de validación que asegure que la identidad existe y es valida en sus sistemas.
 
-<center>
-
-![Example banner](./assets/google-provider-account-chooser.jpg)
-
-</center>
-
 :::note
 El proceso de validación de identidad ocurre internamente a través del proveedor de autenticación y no es de alcance del IAM interrumpir o modificar de forma parcial o total algun punto del proceso.
 :::
