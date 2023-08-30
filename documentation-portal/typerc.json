@@ -9,7 +9,6 @@
     "React"
   ],
   "kind": "documentation-portal",
-  
   "pipeline_kind": "web",
   "folder": "apps",
   "icons": {
@@ -17,7 +16,7 @@
     "dark": "icons/icon.svg"
   },
   "descriptions": {
-    "es": "Proyecto de documentación basad en Docusaurus",
+    "es": "Proyecto de documentación basado en la librería docusaurus que nos permite crear un portal de documentación a través de archivos markdown",
     "en": "Documentation project template based on the awesome docusaurus library"
   },
   "scripts": {
