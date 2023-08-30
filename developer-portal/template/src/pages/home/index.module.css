@@ -1,0 +1,53 @@
+.root {
+  background-color: var(--background-color);
+  height: 100%;
+}
+
+.header {
+  height: 13%;
+}
+
+.header__title {
+  font-size: 28px !important;
+  margin: 0px !important;
+  line-height: 1.5em !important;
+}
+
+.header__subtitle {
+  color: var(--text-color-secondary) !important;
+  font-size: 16px !important;
+}
+
+.content {
+  height: 87%;
+  background-color: var(--background-color-secondary);
+  border-radius: 24px;
+  padding: 2em;
+}
+
+.content__image {
+  height: 320px;
+  margin-top: 3em;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+.content__title {
+  padding-top: 1em;
+  text-align: center;
+  margin: 0px !important;
+  line-height: 1.5em !important;
+}
+
+.content__subtitle {
+  text-align: center;
+  padding-bottom: 4em;
+}
+
+.content__subtitle__text {
+  color: var(--text-color-secondary) !important;
+}
+
+.content__actions {
+}

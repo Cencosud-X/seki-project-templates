@@ -1,0 +1,91 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
+  "targets": {
+    "build": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "release",
+      "options": {
+        "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
+        "compiler": "babel",
+        "index": "{{data.group_folder}}/{{data.path}}/src/index.html",
+        "baseHref": "/",
+        "main": "{{data.group_folder}}/{{data.path}}/src/main.tsx",
+        "polyfills": "{{data.group_folder}}/{{data.path}}/src/polyfills.ts",
+        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
+        "assets": ["{{data.group_folder}}/{{data.path}}/src/assets", "{{data.group_folder}}/{{data.path}}/src/config"],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "{{data.group_folder}}/{{data.path}}/webpack.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "release": {
+          "optimization": true,
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": true
+        }
+      }
+    },
+    "serve": {
+      "dependsOn": [
+        {
+          "target": "secrets",
+          "projects": "self"
+        }
+      ],
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "{{data.path}}:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "{{data.path}}:build:development"
+        },
+        "release": {
+          "buildTarget": "{{data.path}}:build:release",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["{{data.group_folder}}/{{data.path}}/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/{{data.group_folder}}/{{data.path}}"],
+      "options": {
+        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "secrets": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "seki secrets generate -p={{data.path}}",
+        "cwd": "."
+      }
+    }
+  },
+  "tags": ["REQUIRED:GOLDEN"]
+}

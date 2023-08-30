@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "allOf": [
+    {
+      "properties": {
+        "settings": {
+          "required": [],
+          "type": "object",
+          "description": "Specific configuration",
+          "properties": {
+            "secured": {
+              "type": "boolean",
+              "description": "Secured the page with an authentication provider",
+              "default": true
+            }
+          }
+        }
+      }
+    },
+    {
+      "$ref": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/type.schema.json"
+    }
+  ]
+}
