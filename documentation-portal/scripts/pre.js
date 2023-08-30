@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = async (runner, args) => {
   try {
-    console.log('> PRE: Installing prerequisites (Documentation Portal):');
+    console.log('> PRE: Installing prerequisites:');
     const rc = args.rc;
 
     let docusaurusVersion = "2.4.1";

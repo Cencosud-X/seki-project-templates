@@ -1,6 +1,6 @@
 module.exports = async (runner, args) => {
   try {
-    console.log('> POST: Cleansing (WEB):');
+    console.log('> POST: Cleansing:');
 
     const rc = args.rc;
     await runner.execute([
@@ -13,6 +13,17 @@ module.exports = async (runner, args) => {
       'rm -rf ./src/styles.css',
       //'rm -rf ./src/assets',
       'rm -rf ./src/environments',
+
+      'rm -rf ./.babelrc',
+      'rm -rf ./.eslintrc.json',
+      'rm -rf ./browserslist',
+      'rm -rf ./jest.config.ts',
+      'rm -rf ./tsconfig.spec.json',
+
+      'rm -rf ./src/index.html',
+      'rm -rf ./src/polyfills.ts',
+      'rm -rf ./src/browserslist',
+      'rm -rf ./src/assets',
     ], {
       cwd: args.workspacePath
     })
@@ -20,6 +31,6 @@ module.exports = async (runner, args) => {
     console.log('> POST: cleansing process ✅ DONE');
 
   } catch {
-    throw new Error('Failed to clean WEB generators');
+    throw new Error('Failed to clean generators');
   }
 }
