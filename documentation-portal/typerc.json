@@ -2,11 +2,14 @@
   "$schema": "https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
   "name": "Documentation Portal",
   "tags": [
-    "experimental",
+    "beta",
+    "Docusaurus",
+    "Documentation",
     "Node",
     "React"
   ],
   "kind": "documentation-portal",
+  "pipeline_kind": "web",
   "folder": "apps",
   "icons": {
     "light": "icons/icon.svg",
