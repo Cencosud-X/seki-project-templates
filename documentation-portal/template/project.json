@@ -4,64 +4,30 @@
   "sourceRoot": "{{data.group_folder}}/{{data.path}}/src",
   "targets": {
     "build": {
-      "dependsOn": [
-        {
-          "target": "secrets",
-          "projects": "self"
-        }
-      ],
-      "executor": "@nrwl/web:webpack",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "release",
+      "executor": "nx:run-commands",
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
-        "compiler": "babel",
-        "index": "{{data.group_folder}}/{{data.path}}/src/index.html",
-        "baseHref": "/",
-        "main": "{{data.group_folder}}/{{data.path}}/src/main.tsx",
-        "polyfills": "{{data.group_folder}}/{{data.path}}/src/polyfills.ts",
-        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
-        "assets": ["{{data.group_folder}}/{{data.path}}/src/assets", "{{data.group_folder}}/{{data.path}}/src/config"],
-        "styles": [],
-        "scripts": [],
-        "webpackConfig": "{{data.group_folder}}/{{data.path}}/webpack.js"
-      },
-      "configurations": {
-        "development": {
-          "extractLicenses": false,
-          "optimization": false,
-          "sourceMap": true,
-          "vendorChunk": true
-        },
-        "release": {
-          "optimization": true,
-          "sourceMap": false,
-          "namedChunks": false,
-          "extractLicenses": true,
-          "vendorChunk": true
-        }
+        "commands": [
+          "npx docusaurus build /{{data.group_folder}}/{{data.path}}",
+          "mkdir -p dist/{{data.group_folder}}/",
+          "mv {{data.group_folder}}/{{data.path}}/build dist/{{data.group_folder}}/{{data.path}}"
+        ],
+        "parallel": false,
+        "cwd": "."
       }
     },
     "serve": {
-      "dependsOn": [
-        {
-          "target": "secrets",
-          "projects": "self"
-        }
-      ],
-      "executor": "@nrwl/web:dev-server",
-      "defaultConfiguration": "development",
+      "executor": "nx:run-commands",
       "options": {
-        "buildTarget": "{{data.path}}:build"
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "{{data.path}}:build:development"
-        },
-        "release": {
-          "buildTarget": "{{data.path}}:build:release",
-          "hmr": false
-        }
+        "command": "npx docusaurus start {{data.group_folder}}/{{data.path}}",
+        "cwd": "."
+      }
+    },
+    "clear": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx docusaurus clear {{data.group_folder}}/{{data.path}}",
+        "cwd": "."
       }
     },
     "lint": {
@@ -69,14 +35,6 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["{{data.group_folder}}/{{data.path}}/**/*.ts"]
-      }
-    },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/{{data.group_folder}}/{{data.path}}"],
-      "options": {
-        "jestConfig": "{{data.group_folder}}/{{data.path}}/jest.config.ts",
-        "passWithNoTests": true
       }
     },
     "secrets": {
