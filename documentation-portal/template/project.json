@@ -8,7 +8,7 @@
       "options": {
         "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
         "commands": [
-          "npx docusaurus build /{{data.group_folder}}/{{data.path}}",
+          "npx docusaurus build {{data.group_folder}}/{{data.path}}",
           "mkdir -p dist/{{data.group_folder}}/",
           "mv {{data.group_folder}}/{{data.path}}/build dist/{{data.group_folder}}/{{data.path}}"
         ],
