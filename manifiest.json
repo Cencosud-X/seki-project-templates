@@ -17,7 +17,7 @@
     "api/typerc.json",
     "library/typerc.json", 
     "subscriber/typerc.json",
-    "developer-portal/typerc.json",
+    "documentation-portal/typerc.json",
     "web/typerc.json",
     "cronjob/typerc.json",
     "cli/typerc.json"
