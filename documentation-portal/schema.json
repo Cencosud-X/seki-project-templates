@@ -4,13 +4,14 @@
     {
       "properties": {
         "settings": {
-          "required": [],
+          "required": ["secured"],
           "type": "object",
           "description": "Specific configuration",
+          "default": { "secured": true },
           "properties": {
             "secured": {
               "type": "boolean",
-              "description": "Secured the page with an authentication provider",
+              "description": "Secured the page with an authentication provider (default: microsoft adfs)",
               "default": true
             }
           }
