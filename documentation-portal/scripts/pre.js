@@ -29,15 +29,16 @@ module.exports = async (runner, args) => {
 
     await runner.execute(
       [
-        "npm install -D @nrwl/web@14.4.3",
-        "npm install react-router-dom",
+        // "npm install -D @nx/web",
+        // "npm install -D swc-loader",
 
-        // Install docusaurus as the default
+        // // Install docusaurus as the default
         `npm install @docusaurus/core@${docusaurusVersion}`,
         `npm install @docusaurus/preset-classic@${docusaurusVersion}`,
         `npm install @docusaurus/theme-mermaid@${docusaurusVersion}`,
+        "npm install -D react-router-dom",
 
-        `npx nx g @nrwl/web:app ${rc.path}`,
+        `npx nx g @nx/web:app ${rc.path} --unitTestRunner=jest --e2eTestRunner=none --bundler=webpack`,
       ],
       {
         cwd: rc.workspace_path,
