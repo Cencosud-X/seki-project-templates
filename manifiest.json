@@ -20,6 +20,7 @@
     "documentation-portal/typerc.json",
     "web/typerc.json",
     "cronjob/typerc.json",
-    "cli/typerc.json"
+    "cli/typerc.json",
+    "serverless/typerc.json"
   ]
 }

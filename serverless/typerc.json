@@ -1,0 +1,35 @@
+{
+   "$schema":"https://raw.githubusercontent.com/Cencosud-X/seki-schemas/main/v1/projects/typerc.schema.json",
+   "name":"Serverless",
+   "tags":[
+      "serverless",
+      "lambda",
+      "typescript",
+      "AWS",
+      "function",
+      "TS",
+      "experimental"
+   ],
+   "kind":"serverless",
+   "folder":"apps",
+   "icons":{
+      "light":"icons/icon.svg",
+      "dark":"icons/icon.svg"
+   },
+   "descriptions":{
+      "es":"Plantilla para una funcion serverless, construida en TypeScript",
+      "en":"Template for a serverless function, developed in TypeScript"
+   },
+   "scripts":{
+      "pre":"scripts/pre.js",
+      "post":"scripts/post.js",
+      "rollback":"scripts/rollback.js"
+   },
+   "interpolations":{
+      "source":"template",
+      "substitutions":{
+         "TAG_GOLDEN_REQUIRED":"REQUIRED:GOLDEN"
+      }
+   },
+   "color":"#F5B041"
+}
