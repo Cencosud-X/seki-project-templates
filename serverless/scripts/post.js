@@ -1,19 +1,26 @@
 module.exports = async (runner, args) => {
   try {
-    console.log('> POST: Cleansing (Serverless):');
+    console.log("> POST: Cleansing (Serverless):");
+    console.log("RPM WAS HERE");
 
-    await runner.execute([
-      'rm -rf ./src/app',
-      'rm -rf ./src/assets',
-      'rm -rf ./src/environments',
-      `npx nx run ${rc.path}:secrets`
-    ], {
-      cwd: args.workspacePath
-    })
+    const rc = args.rc;
+    console.log("RPM rc", rc);
 
-    console.log('> POST: cleansing process ✅ DONE');
+    await runner.execute(
+      [
+        "rm -rf ./src/app",
+        "rm -rf ./src/assets",
+        "rm -rf ./src/environments",
+        `npx nx run ${rc.path}:secrets`,
+      ],
+      {
+        cwd: args.workspacePath,
+      }
+    );
 
-  } catch {
-    throw new Error('Failed to clean serverless generators');
+    console.log("> POST: cleansing process ✅ DONE");
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to clean serverless generators");
   }
-}
+};
