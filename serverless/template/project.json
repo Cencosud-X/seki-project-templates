@@ -14,7 +14,7 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "release",
       "options": {
-        "command": "sam build -p -t {{data.group_folder}}/{{data.path}}/template.yaml",
+        "command": "sam build -p -t {{data.group_folder}}/{{data.path}}/template.yaml -b .aws_sam/{{data.group_folder}}/{{data.path}} -s {{data.group_folder}}/{{data.path}}",
         "cwd": "."
       },
       "configurations": {
