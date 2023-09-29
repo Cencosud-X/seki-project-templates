@@ -45,7 +45,7 @@
       "executor": "nx:run-commands",
       "defaultConfiguration": "development",
       "options": {
-        "command": "sam local start-api --warm-containers EAGER -t {{data.group_folder}}/{{data.path}}/template.yaml",
+        "command": "sam local start-api --warm-containers EAGER -t .aws_sam/{{data.group_folder}}/{{data.path}}/template.yaml",
         "cwd": "."
       },
       "configurations": {
