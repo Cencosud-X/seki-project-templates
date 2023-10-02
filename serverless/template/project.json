@@ -10,17 +10,12 @@
           "projects": "self"
         }
       ],
-      "executor": "@nrwl/node:webpack",
+      "executor": "nx:run-commands",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "release",
       "options": {
-        "outputPath": "dist/{{data.group_folder}}/{{data.path}}",
-        "main": "{{data.group_folder}}/{{data.path}}/src/main.ts",
-        "tsConfig": "{{data.group_folder}}/{{data.path}}/tsconfig.app.json",
-        "assets": ["{{data.group_folder}}/{{data.path}}/src/config"],
-        "webpackConfig": [
-          "{{data.group_folder}}/{{data.path}}/webpack.js"
-        ]
+        "command": "sam build -p -t {{data.group_folder}}/{{data.path}}/template.yaml -b .aws_sam/{{data.group_folder}}/{{data.path}} -s {{data.group_folder}}/{{data.path}}",
+        "cwd": "."
       },
       "configurations": {
         "development": {
@@ -47,10 +42,11 @@
           "projects": "self"
         }
       ],
-      "executor": "@nrwl/node:node",
+      "executor": "nx:run-commands",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "{{data.path}}:build"
+        "command": "sam local start-api --warm-containers EAGER -t .aws_sam/{{data.group_folder}}/{{data.path}}/template.yaml",
+        "cwd": "."
       },
       "configurations": {
         "development": {

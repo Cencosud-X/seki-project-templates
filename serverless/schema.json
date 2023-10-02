@@ -3,20 +3,30 @@
   "allOf": [
     {
       "properties": {
-        "memory": {
-          "type": "integer",
-          "description": "Your function is allocated CPU proportional to the memory configured, Set memory between 128 MB and 10240 MB",
-          "default": 128
-        },
-        "ephemeralStorage": {
-          "type": "integer",
-          "description": "You can configure up to 10 GB of ephemeral storage for your function, Set ephemeral storage to between 512 MB and 10240 MB",
-          "default": 512
-        },
-        "timeout": {
-          "type": "integer",
-          "description": " time in seconds",
-          "default": 60
+        "settings": {
+          "required": ["memory", "timeout"],
+          "type": "object",
+          "description": "lambda configuration",
+          "default": {
+            "memory": 128, "timeout": 60
+          },
+          "properties": {
+            "memory": {
+              "type": "integer",
+              "description": "Your function is allocated CPU proportional to the memory configured, Set memory between 128 MB and 10240 MB",
+              "default": 128
+            },
+            "ephemeralStorage": {
+              "type": "integer",
+              "description": "You can configure up to 10 GB of ephemeral storage for your function, Set ephemeral storage to between 512 MB and 10240 MB",
+              "default": 512
+            },
+            "timeout": {
+              "type": "integer",
+              "description": " time in seconds",
+              "default": 60
+            }
+          }
         }
       }
     },
