@@ -1,10 +1,8 @@
 module.exports = async (runner, args) => {
   try {
     console.log("> POST: Cleansing (Serverless):");
-    console.log("RPM WAS HERE");
 
     const rc = args.rc;
-    console.log("RPM rc", rc);
 
     await runner.execute(
       [
