@@ -5,14 +5,12 @@ module.exports = async (runner, args) => {
     const rc = args.rc;
     await runner.execute(
       [
-        // `npx nx g @nx/workspace:rm ${rc.path}-e2e`,
         "rm -rf ./src/app",
         "rm -rf ./src/test-setup.ts",
         "rm -rf ./favicon.ico",
         "rm -rf ./src/favicon.ico",
         "rm -rf ./src/main.ts",
         "rm -rf ./src/styles.css",
-        //'rm -rf ./src/assets',
         "rm -rf ./src/environments",
 
         "rm -rf ./.babelrc",

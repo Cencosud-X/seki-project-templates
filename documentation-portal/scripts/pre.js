@@ -38,7 +38,7 @@ module.exports = async (runner, args) => {
         `npm install @docusaurus/theme-mermaid@${docusaurusVersion}`,
         "npm install -D react-router-dom",
 
-        `npx nx g @nx/web:app ${rc.path} --unitTestRunner=jest --e2eTestRunner=none --bundler=webpack`,
+        `npx nx g @nrwl/web:app ${rc.path} --unitTestRunner=jest --e2eTestRunner=none --bundler=webpack`,
       ],
       {
         cwd: rc.workspace_path,
