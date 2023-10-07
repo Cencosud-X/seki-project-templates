@@ -3,7 +3,7 @@ module.exports = async (runner, args) => {
     console.log("> Cleaning Monorepo....");
 
     const rc = args.rc;
-    await runner.execute(`npx nx g @nx/workspace:rm ${rc.path}`, {
+    await runner.execute(`npx nx g @nrwl/workspace:rm ${rc.path}`, {
       cwd: rc.workspace_path,
     });
 
