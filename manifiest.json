@@ -21,7 +21,6 @@
     "web/typerc.json",
     "cronjob/typerc.json",
     "cli/typerc.json",
-    "electron/typerc.json",
     "serverless/typerc.json"
   ]
 }
